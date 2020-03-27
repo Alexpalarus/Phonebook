@@ -9,10 +9,11 @@ export default function AddContact() {
     const history = useHistory();
     const { register, handleSubmit, errors } = useForm()
 
+
     const onSubmit = data => { 
         axios.post('https://127.0.0.1:8000/api/phonebooks', data)
         .then(response => {
-            console.log(response)
+            console.log(response);
         })
         .catch(e => {
             console.log(e)
@@ -36,7 +37,7 @@ export default function AddContact() {
                             ref={register({ required: "Firstname is required" })}
                         />
                         {errors.firstName ?
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 {errors.firstName.message}
                             </div>
                         : null }
@@ -51,7 +52,7 @@ export default function AddContact() {
                             ref={register({ required: "Lastname is required" })}
                         />
                         {errors.lastName ?
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 {errors.lastName.message}
                             </div>
                         : null }
@@ -78,7 +79,7 @@ export default function AddContact() {
                             })}
                         />
                         {errors.number ?
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 {errors.number.message}
                             </div>
                         : null }

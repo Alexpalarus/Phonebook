@@ -9,18 +9,11 @@ export default function ListContact() {
     const { contacts, dispatch } = useContext(ContactContext);
 
     useEffect(() => {
-        let mounted = true;
-        console.log('ListContact');
-        if(contacts.length === 0) {
-            axios.get('/api/phonebooks')
-            .then(response => {
-                if (mounted){
-                    dispatch({type: 'SET_CONTACTS', payload: response.data['hydra:member']});
-                }
-            });
-        }
-        return () => mounted = false;
-    }, [contacts])
+        axios.get('/api/phonebooks')
+        .then(response => {
+            dispatch({type: 'SET_CONTACTS', payload: response.data['hydra:member']});
+        });
+    }, [])
 
     return (
         <>
@@ -36,7 +29,6 @@ export default function ListContact() {
                 />)
             }  
             </div>
-            
         </>
     )
 }

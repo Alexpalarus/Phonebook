@@ -13,7 +13,6 @@ export default function ModifyContact({match}) {
     const [id, setId] = useState('')
 
     useEffect(() => {
-        console.log('ModifyContact');
         axios.get('/api/phonebooks/'+match.params.id)
         .then(response => {
             const {id, firstName, lastName, number} = response.data;
@@ -25,6 +24,10 @@ export default function ModifyContact({match}) {
                         'number': number,
                     }
                 )
+        })
+        .catch(e => {
+            console.log(e.message);
+            history.push("/");
         })
     }, [reset])
 
@@ -57,7 +60,7 @@ export default function ModifyContact({match}) {
                             ref={register({ required: "Firstname is required" })}
                         />
                         {errors.firstName ?
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 {errors.firstName.message}
                             </div>
                         : null }
@@ -72,7 +75,7 @@ export default function ModifyContact({match}) {
                             ref={register({ required: "Lastname is required" })}
                         />
                         {errors.lastName ?
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 {errors.lastName.message}
                             </div>
                         : null }
@@ -93,13 +96,13 @@ export default function ModifyContact({match}) {
                                     message: "Number max 25"
                                 },
                                 pattern: {
-                                    value: /\+[0-9]+ [0-9]+ [0-9]{6,}$/g,
+                                    value: /\+[0-9]+ [0-9]+ [0-9]{6,}/g,
                                     message: "The form of the phone number is incorrect"
                                 }
                             })}
                         />
                         {errors.number ?
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 {errors.number.message}
                             </div>
                         : null }

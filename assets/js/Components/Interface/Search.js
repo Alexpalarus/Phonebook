@@ -11,7 +11,6 @@ export default function Search() {
         e.preventDefault();
         axios.get(`https://127.0.0.1:8000/api/phonebooks?firstName=${searchValue}&lastName=${searchValue}&number=${searchValue}`)
         .then(response => {
-            console.log(response.data['hydra:member']);
             dispatch({type: 'SET_CONTACTS', payload: response.data['hydra:member']});
         })
         .catch(e => {
