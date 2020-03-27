@@ -11,7 +11,7 @@ export default function AddContact() {
 
 
     const onSubmit = data => { 
-        axios.post('https://127.0.0.1:8000/api/phonebooks', data)
+        axios.post('/api/phonebooks', data)
         .then(response => {
             console.log(response);
         })

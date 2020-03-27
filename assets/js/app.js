@@ -6,10 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css'
 import Header from './Components/Interface/Header';
 import Error from './Components/Pages/Error';
-import ListContact from './components/Entries/ListContact';
-import AddContact from './Components/Pages/AddContact';
+import ListContact from './Components/Contact/ListContact';
+import AddContact from './Components/Contact/AddContact';
 import About from './Components/Pages/About';
-import ModifyContact from './Components/Entries/ModifyContact';
+import ModifyContact from './Components/Contact/ModifyContact';
     
 ReactDOM.render(
   <ContactProvider>

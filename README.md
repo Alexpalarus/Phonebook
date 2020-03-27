@@ -33,3 +33,6 @@ php bin/console doctrine:migration:migrate (confirm: Y)
 ```
 php -S 127.0.0.1:8000 -t public
 ```
+
+## To access to the API
+copy this URL: http://127.0.0.1:8000/api
