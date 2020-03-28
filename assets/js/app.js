@@ -12,23 +12,23 @@ import About from './Components/Pages/About';
 import ModifyContact from './Components/Contact/ModifyContact';
     
 ReactDOM.render(
-  <ContactProvider>
-  <Router>
-    <div className="app">
-      <Header/>
-      <div className="container">
-        <Switch>
-          <Route exact path="/home" component={ListContact} />
-          <Route exact path="/add" component={AddContact} />
-          <Route exact path="/" component={ListContact} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/edit/:id" component={ModifyContact} />
-          <Route component={Error} />
-        </Switch>
-      </div>
-    </div>
-  </Router>
-</ContactProvider>
-      , 
-      document.getElementById('root'));
+    <ContactProvider>
+        <Router>
+            <div className="app">
+                <Header/>
+                <div className="container">
+                    <Switch>
+                        <Route exact path="/home" component={ListContact} />
+                        <Route exact path="/add" component={AddContact} />
+                        <Route exact path="/" component={ListContact} />
+                        <Route exact path="/about" component={About} />
+                        <Route exact path="/edit/:id" component={ModifyContact} />
+                        <Route component={Error} />
+                    </Switch>
+                </div>
+            </div>
+        </Router>
+    </ContactProvider>, 
+    document.getElementById('root')
+);
 

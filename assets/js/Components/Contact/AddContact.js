@@ -7,17 +7,18 @@ import axios from 'axios';
 export default function AddContact() {
 
     const history = useHistory();
-    const { register, handleSubmit, errors } = useForm()
+    const { register, handleSubmit, errors } = useForm();
 
 
     const onSubmit = data => { 
         axios.post('/api/phonebooks', data)
-        .then(response => {
-            console.log(response);
-        })
-        .catch(e => {
-            console.log(e)
-        })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        ;
 
         history.push('/home');
     }
@@ -92,5 +93,5 @@ export default function AddContact() {
                 </form>
             </div>
         </div>
-    )
+    );
 }

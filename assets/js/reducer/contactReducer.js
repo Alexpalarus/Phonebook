@@ -7,7 +7,7 @@ export const reducer = (state, action) => {
         case 'ADD_CONTACT':
             return [...state, action.payload];
         case 'MODIFY_CONTACT':
-        return [state].filter(contact => contact.id);
+            return [state].filter(contact => contact.id);
         default:
             return state;
     }

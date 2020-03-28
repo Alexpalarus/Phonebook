@@ -5,8 +5,8 @@ import axios from 'axios';
 
 export default function Contact({id, firstName, lastName, number}) {
 
-    const [show, setShow] = useState(false)
-    const { dispatch } = useContext(ContactContext)
+    const [show, setShow] = useState(false);
+    const { dispatch } = useContext(ContactContext);
 
     const handleShow = () => {
         setShow(!show)
@@ -36,5 +36,5 @@ export default function Contact({id, firstName, lastName, number}) {
                 </div>   
             ) : null}
         </div>
-    )
+    );
 }

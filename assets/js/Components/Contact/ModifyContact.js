@@ -8,42 +8,42 @@ import axios from 'axios';
 export default function ModifyContact({match}) {
 
     const { dispatch } = useContext(ContactContext);
-    const { register, handleSubmit, errors, reset } = useForm()
+    const { register, handleSubmit, errors, reset } = useForm();
     const history = useHistory();
-    const [id, setId] = useState('')
+    const [id, setId] = useState('');
 
     useEffect(() => {
         axios.get('/api/phonebooks/'+match.params.id)
-        .then(response => {
-            const {id, firstName, lastName, number} = response.data;
-                setId(id);
-                reset(
-                    {
-                        'firstName': firstName,
-                        'lastName': lastName,
-                        'number': number,
-                    }
-                )
-        })
-        .catch(e => {
-            console.log(e.message);
-            history.push("/");
-        })
+            .then(response => {
+                const {id, firstName, lastName, number} = response.data;
+                    setId(id);
+                    reset(
+                        {
+                            'firstName': firstName,
+                            'lastName': lastName,
+                            'number': number,
+                        }
+                    )
+            })
+            .catch(e => {
+                console.log(e.message);
+                history.push("/");
+            })
+        ;
     }, [reset])
 
     const onSubmit = data => {
         axios.put('/api/phonebooks/'+id, data)
-        .then(response => {
-                reset();
-                dispatch({type: 'MODIFY_CONTACT', payload: data});
-                history.push('/');
-        })
-        .catch(e => {
-            console.log(e)
-        })
+            .then(response => {
+                    reset();
+                    dispatch({type: 'MODIFY_CONTACT', payload: data});
+                    history.push('/');
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        ;
     }
-
-
 
     return (
         <div className="card border-info mb-3">
@@ -115,5 +115,5 @@ export default function ModifyContact({match}) {
                 </form>
             </div>
         </div>
-    )
+    );
 }
